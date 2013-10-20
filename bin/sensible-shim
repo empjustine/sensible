@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# sensible
+# ========
+#
+# Default application handler
+#
+# Shim handler
+
+_SENSIBLE_VAR=$(echo ${0##*/} | tr '[:lower:]-' '[:upper:]_')
+_SENSIBLE_BIN=$(printenv $_SENSIBLE_VAR)
+
+if type -P "$_SENSIBLE_BIN" &>/dev/null; then
+  "$_SENSIBLE_BIN" "$@"
+else
+  echo "${0##*/}: $_SENSIBLE_BIN not found. Is $_SENSIBLE_VAR set?"
+fi
+
+unset _SENSIBLE_VAR
+unset _SENSIBLE_BIN

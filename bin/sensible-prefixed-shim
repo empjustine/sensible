@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# sensible
+# ========
+#
+# Default application handler
+#
+# Prefixed shim handler
+
+"${0##*/sensible-}" "$@"
